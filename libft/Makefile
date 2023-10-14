@@ -9,18 +9,18 @@ OBJECTS = $(SOURCES:.c=.o)
 NAME = libft.a
 LIBR = ranlib
 AR = ar
-RCS = -rc
-.c.o:
-	$(CC) $(CFLAGS) -c ${SOURCES}
-
-all: $(NAME)
+RCS = -rcs
 
 $(NAME): $(OBJECTS)
 	$(AR) $(RCS) $(NAME) $(OBJECTS)
-	$(LIBR) $(NAME)
+
+all: $(NAME)
+
+.c.o:
+	$(CC) $(CFLAGS) -c ${SOURCES}
 
 clean: 
-	rm -f ft_*.o
+	rm -f ${OBJECTS}
 
 fclean: clean
 	rm -f $(NAME)

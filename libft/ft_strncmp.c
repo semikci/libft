@@ -6,7 +6,7 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:21:32 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/14 03:09:49 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/10/14 20:12:11 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+	if (!*s1 && !*s2)
+		return (0);
 	while (n--)
 	{
 		if (*s1 != *s2)
