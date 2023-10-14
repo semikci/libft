@@ -6,7 +6,7 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 01:24:30 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/14 09:06:52 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/10/14 15:44:44 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int	main(void)
 	printf("%d\n", ft_atoi("   -12345asda"));
 	printf("%s\n", original);
 	printf("%s\n", cpy);
-	printf("%s", ft_substr(s1, 6, 7));
-	
+	printf("%s\n", ft_substr(s1, 6, 7));
+	printf("%s\n", ft_strjoin(s1, s2));
 }

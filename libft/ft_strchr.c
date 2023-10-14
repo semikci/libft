@@ -6,7 +6,7 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 23:13:26 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/13 23:17:26 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/10/14 16:25:12 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s++)
+	while (*s)
+	{
 		if (*s == (char)c)
-			return (s);
+			return ((char *)s);
+		s++;
+	}
 	return (NULL);
 }
