@@ -6,7 +6,7 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:36:00 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/14 08:53:45 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:22:44 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ char	*ft_strdup(const char *s1)
 	size_t	n;
 
 	n = ft_strlen(s1);
-	cpy = (char *)malloc(sizeof(*cpy) * n);
+	cpy = (char *)malloc(sizeof(*s1) * (n + 1));
 	if (cpy == NULL)
 		return (NULL);
-	return ((char *)ft_memcpy(cpy, s1, n));
+	ft_strlcpy(cpy, s1, n + 1);
+	return (cpy);
 }
