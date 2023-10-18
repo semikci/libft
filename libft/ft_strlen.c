@@ -6,15 +6,15 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 00:01:15 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/15 19:45:05 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:02:40 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	a;
+	size_t	a;
 
 	a = 0;
 	while (str[a])

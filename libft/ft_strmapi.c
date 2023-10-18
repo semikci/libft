@@ -1,24 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 23:18:03 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/17 19:03:50 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/10/17 20:17:39 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/10/18 15:55:04 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	a;
+	unsigned int	i;
+	char			*str;
 
-	a = ft_strlen(s) + 1;
-	while (--a >= 0)
-		if (s[a] == (char)c)
-			return ((char *)(s + a));
-	return (NULL);
+	str = (char *)s;
+	i = 0;
+	while (s[i])
+	{
+		str[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (str);
+}
+
+char	ft_up(unsigned int i, char a)
+{
+	(void)i;
+	return (a - 32);
+}
+
+int	main(void)
+{
+	char	set[] = "fatih";
+
+	ft_strmapi(set, ft_up);
+	printf("%s\n", set);
 }

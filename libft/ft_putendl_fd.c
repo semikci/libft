@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 23:18:03 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/17 19:03:50 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/10/18 18:00:23 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/10/18 18:10:56 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	a;
+	if (!*s)
+		return ;
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
+}
 
-	a = ft_strlen(s) + 1;
-	while (--a >= 0)
-		if (s[a] == (char)c)
-			return ((char *)(s + a));
-	return (NULL);
+int	main(void)
+{
+	int	fd;
+
+	fd = open("deneme3", O_CREAT | O_RDWR, 0777);
+	ft_putendl_fd("semih", fd);
 }

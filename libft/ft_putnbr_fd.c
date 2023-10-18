@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 23:18:03 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/17 19:03:50 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/10/18 18:11:37 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/10/18 18:27:53 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	a;
+	write(fd, ft_itoa(n), ft_strlen(ft_itoa(n)));
+}
 
-	a = ft_strlen(s) + 1;
-	while (--a >= 0)
-		if (s[a] == (char)c)
-			return ((char *)(s + a));
-	return (NULL);
+int	main(void)
+{
+	int	fd;
+
+	fd = open("deneme4", O_CREAT | O_RDWR, 0777);
+	ft_putnbr_fd(1231453, fd);
 }

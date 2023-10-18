@@ -6,13 +6,13 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 02:22:10 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/17 13:11:29 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:56:58 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+/*char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	char	*s1;
@@ -27,23 +27,23 @@ char	**ft_split(char const *s, char c)
 	while (*s1)
 		if (ft_strchr(s1++, c))
 			i++;
-	printf("%d", i);
-	str = (char **)malloc(sizeof(char *) * i);
+	//printf("%d", i);
+	*str = (char **)malloc(sizeof(char *) * i);
 	while (*s && *s2 && ft_strchr(s2++, c))
-		*str++ = ft_substr(s,0, ft_strlen(s) - ft_strlen(s2) - 1);
+		*str++ = ft_substr(s, , ft_strlen(s) - ft_strlen(s2) - 1);
 	return (str);
 }
 
-
+semih ekmekci
 
 int	main(void)
 {
-	char *str = { " salih 42polat \\0"};
-	char **dest = ft_split(str, ' ');
+	char	*str = { "salih 42 polat \\0"};
+	char	**dest = ft_split(str, ' ');
 	
 	printf("%s", dest[1]);
 }
-/*
+
 ahm b ahmet
 0123456
 13 - 7 = 6

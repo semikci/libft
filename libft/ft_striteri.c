@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 23:18:03 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/17 19:03:50 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/10/18 15:55:51 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/10/18 17:29:18 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	a;
+	unsigned int	i;
 
-	a = ft_strlen(s) + 1;
-	while (--a >= 0)
-		if (s[a] == (char)c)
-			return ((char *)(s + a));
-	return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, &(s[i]));
+		i++;
+	}
+}
+
+void	ft_up(unsigned int i, char *a)
+{
+	a[i] -= 32;
+}
+
+int	main(void)
+{
+	char	str[] = "semih";
+
+	ft_striteri(str, ft_up);
+	printf("%s\n", str);
 }
