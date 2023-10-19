@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 18:21:24 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/19 12:56:39 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/10/19 14:01:37 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/10/19 14:18:35 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*new;
+	t_list	*a;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
+	a = (t_list *)malloc(sizeof(t_list));
+	if (!a)
 		return (NULL);
-	new -> content = content;
-	new -> next = NULL;
-	return (new);
+	a = lst;
+	while (a != NULL)
+		a = a -> next;
+	return (a);
 }
 
 int	main(void)
 {
-	t_list	*a;
+	t_list	*lst;
 
-	a = ft_lstnew("semih ekmekci");
-	printf("%s\n", a->content);
-	printf("%s\n", a->next);
+	lst = (t_list *)malloc(sizeof(t_list));
+	if (!lst)
+		printf("bellek boş\n");
+	lst -> content = "semih";
+	lst -> next -> content = "ekmekci";
+	printf("%s\n", ft_lstlast(lst)->content);
+	free(lst);
 }

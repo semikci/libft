@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 18:21:24 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/19 12:56:39 by sekmekci         ###   ########.fr       */
+/*   Created: 2023/10/19 12:51:21 by sekmekci          #+#    #+#             */
+/*   Updated: 2023/10/19 13:40:40 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*new;
+	t_list	*x;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new -> content = content;
+	x = *lst;
+	x -> next = new;
 	new -> next = NULL;
-	return (new);
 }
 
 int	main(void)
 {
 	t_list	*a;
+	t_list	*new;
 
-	a = ft_lstnew("semih ekmekci");
-	printf("%s\n", a->content);
-	printf("%s\n", a->next);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		printf("bellek boş\n");
+	new -> content = "semih ekmekci";
+	ft_lstadd_front(&a, new);
+	printf("%s\n", a -> next -> content);
+	free(new);
 }

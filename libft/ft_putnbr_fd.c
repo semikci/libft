@@ -6,15 +6,38 @@
 /*   By: sekmekci <sekmekci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:11:37 by sekmekci          #+#    #+#             */
-/*   Updated: 2023/10/18 18:27:53 by sekmekci         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:18:38 by sekmekci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static void	ft_putnbr(int nb, int fd)
+{
+	int	a;
+
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	if (nb < 0 && nb != -2147483648)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb > 10)
+	{
+		ft_putnbr(nb / 10, fd);
+		ft_putnbr(nb % 10, fd);
+	}
+	if (nb < 10 && nb >= 0)
+	{
+		a = 48 + nb;
+		write(fd, &a, 1);
+	}
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, ft_itoa(n), ft_strlen(ft_itoa(n)));
+	ft_putnbr(n, fd);
 }
 
 int	main(void)
